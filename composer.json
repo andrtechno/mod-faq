@@ -1,8 +1,8 @@
 {
     "name": "panix/mod-license",
     "description": "Module license",
-    "keywords": ["pixelion-cms", "module", "license"],
-    "homepage": "https://github.com/andrtechno/mod-license",
+    "keywords": ["pixelion-cms", "module", "faq"],
+    "homepage": "https://github.com/andrtechno/mod-faq",
     "type": "pixelion-module",
     "license": "MIT",
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "panix\\mod\\license\\": ""
+            "panix\\mod\\faq\\": ""
         }
     }
 }
