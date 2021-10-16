@@ -2,8 +2,6 @@
 
 namespace panix\mod\faq\models;
 
-
-use app\modules\search\behaviors\SearchBehavior;
 use Yii;
 use panix\engine\db\ActiveRecord;
 use panix\mod\faq\models\query\FaqQuery;
@@ -130,49 +128,4 @@ class Faq extends ActiveRecord
         return $this->hasOne(FaqCategory::class, ['id' => 'category_id']);
     }
 
-    public function behaviors()
-    {
-        $b=[];
-        $b['search'] = [
-            'class' => SearchBehavior::class,
-            'searchScope' => function ($model) {
-              // $model->translate(2);
-                $model->published();
-                // $model->select(['translate.question','translate.answer']);
-               // echo $model->createCommand()->rawSql;die;
-                //  $model->andWhere(['indexed' => true]);
-            },
-            'searchFields' => function ($model) {
-
-                return [
-                    ['name' => 'title', 'value' => $model->question],
-                    ['name' => 'text', 'value' => strip_tags($model->answer)],
-                     ['name' => 'url', 'value' => \yii\helpers\Url::to(['/faq/default/index']), 'type' => SearchBehavior::FIELD_TEXT],
-                    // ['name' => 'model', 'value' => 'page', 'type' => SearchBehavior::FIELD_UNSTORED],
-                ];
-            }
-        ];
-        /*$b['search'] = [
-            'class' => \sadovojav\search\behaviors\SearchBehavior::className(),
-            'attributes' => [
-                'name' => [
-                    'name' => SearchLucene::FIELD_TEXT
-                ],
-                'text_intro' => [
-                    'text_intro' => SearchLucene::FIELD_UN_STORED
-                ],
-                'text_full' => [
-                    'text_full' => SearchLucene::FIELD_UN_STORED
-                ],
-            ],
-            'conditions' => [
-                'switch' => 1
-            ],
-            'urlManagerRule' => [
-                'news/<id:\d+>' => '/news/news/view'
-            ]
-        ];*/
-
-        return \yii\helpers\ArrayHelper::merge($b, parent::behaviors());
-    }
 }
