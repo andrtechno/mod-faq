@@ -1,6 +1,6 @@
 {
-    "name": "panix/mod-license",
-    "description": "Module license",
+    "name": "panix/mod-faq",
+    "description": "Module faq",
     "keywords": ["pixelion-cms", "module", "faq"],
     "homepage": "https://github.com/andrtechno/mod-faq",
     "type": "pixelion-module",
