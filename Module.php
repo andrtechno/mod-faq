@@ -23,21 +23,6 @@ class Module extends WebModule implements BootstrapInterface
     public function bootstrap($app)
     {
 
-        /*$groupUrlRule = new GroupUrlRule([
-            'prefix' => $this->id,
-            'rules' => [
-                '<slug:[0-9a-zA-Z_\-]+>/page/<page:\d+>/per-page/<per-page:\d+>' => 'default/view',
-                '<slug:[0-9a-zA-Z_\-]+>/page/<page:\d+>' => 'default/view',
-                '<slug:[0-9a-zA-Z_\-]+>' => 'default/view',
-                'page/<page:\d+>/per-page/<per-page:\d+>' => 'default/index',
-                'page/<page:\d+>' => 'default/index',
-                'tag/<tag:[\w\d\s]+>' => 'default/index',
-                '' => 'default/index',
-            ],
-        ]);
-        $app->getUrlManager()->addRules($groupUrlRule->rules, false);*/
-
-
         $rules = [];
         if ($this->enableCategory) {
             $rules['<category:[0-9a-zA-Z_\-]+>/<slug:[0-9a-zA-Z_\-]+>/page/<page:\d+>/per-page/<per-page:\d+>'] = 'default/view';
