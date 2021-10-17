@@ -36,7 +36,8 @@ class Module extends WebModule implements BootstrapInterface
             $rules['<slug:[0-9a-zA-Z_\-]+>/page/<page:\d+>'] = 'default/view';
             $rules['<slug:[0-9a-zA-Z_\-]+>'] = 'default/view';
         }
-        $rules['tag/<tag:[\w\d\s]+>'] = 'default/index';
+        $rules['page/<page:\d+>/per-page/<per-page:\d+>'] = 'default/index';
+        $rules['page/<page:\d+>'] = 'default/index';
         $rules[''] = 'default/index';
         $groupUrlRule = new GroupUrlRule([
             'prefix' => $this->id,
