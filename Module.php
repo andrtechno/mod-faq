@@ -17,7 +17,7 @@ use yii\web\GroupUrlRule;
 class Module extends WebModule implements BootstrapInterface
 {
 
-    public $icon = 'newspaper';
+    public $icon = 'question';
     public $enableCategory = true;
 
     public function bootstrap($app)

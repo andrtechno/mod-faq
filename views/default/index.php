@@ -5,8 +5,11 @@ use panix\engine\widgets\ListView;
 
 ?>
 
-
+<div class="container">
 <h1><?= $this->context->pageName; ?></h1>
+
+<div class="row">
+    <div class="col-sm-9">
 
 
 <?php
@@ -14,10 +17,11 @@ use panix\engine\widgets\ListView;
 echo ListView::widget([
     'dataProvider' => $dataProvider,
     'itemView' => '_item',
+    'id'=>'accordion',
     //'layout' => '{sorter}{summary}{items}{pager}',
     'layout' => '{items}{pager}',
     'emptyText' => 'Empty',
-    'options' => ['class' => 'list-view'],
+    'options' => ['class' => 'list-view accordion'],
     'itemOptions' => ['class' => 'item'],
     'emptyTextOptions' => ['class' => 'alert alert-info'],
     'pager' => [
@@ -27,6 +31,12 @@ echo ListView::widget([
 ]);
 
 ?>
+
+    </div>
+    <div class="col-sm-3">
+        asd
+    </div>
+</div>
 <div class="flat-tabs flat-tabs-1">
     <div class="text-center">
         <?php if (Yii::$app->getModule($this->context->module->id)->enableCategory) { ?>
@@ -85,3 +95,4 @@ echo ListView::widget([
 
 
 
+</div>

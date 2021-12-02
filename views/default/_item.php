@@ -10,15 +10,16 @@ use panix\engine\CMS;
 
 
 ?>
+<div class="faq">
+    <div class="faq-header" data-toggle="collapse" data-target="#faq-<?= $index; ?>"
+         aria-expanded="false" aria-controls="faq-<?= $index; ?>" id="heading<?= $index; ?>">
+        <?= $model->question; ?>
+<span class="faq-indicator"></span>
+    </div>
 
-<div class="mt-3">
-<a class="h5" data-toggle="collapse" href="#collapse-faq-<?= $model->id; ?>" role="button" aria-expanded="false"
-   aria-controls="collapse-faq-<?= $model->id; ?>">
-    <?= $model->question; ?>
-</a>
+    <div id="faq-<?= $index; ?>" class="collapse" aria-labelledby="heading<?= $index; ?>" data-parent="#accordion">
+        <?= $model->isText('answer'); ?>
+    </div>
+</div>
 
-<div class="collapse" id="collapse-faq-<?= $model->id; ?>">
-    <?= $model->isText('answer'); ?>
-</div>
-</div>
 
